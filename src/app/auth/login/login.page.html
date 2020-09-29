@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" >
+  <form [formGroup] = 'form' (submit) ="onSubmit()" >
+    <ion-item>
+      <ion-label position="floating" >Email</ion-label>
+      <ion-input type="text" required formControlName='email' ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" >Password</ion-label>
+      <ion-input type="password" required formControlName='password' ></ion-input>
+    </ion-item>
+    <ion-button type="submit" class="ion-margin-top" expend="block" [disabled]='form.invalid' >Login</ion-button>
+    <ion-button class="ion-margin-top" expend="block" routerLink="/register" >Register</ion-button>
+  </form>
+</ion-content>

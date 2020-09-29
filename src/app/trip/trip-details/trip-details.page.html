@@ -1,0 +1,144 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Trip Detail</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/trip" ></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="information-circle"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="call"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid *ngIf="loadTrip" >
+    <ion-row>
+      <ion-col>
+        <ion-text >
+          <h4>
+            <strong>
+              <ion-text >
+                {{ loadTrip.from | titlecase }} - {{ loadTrip.to | titlecase }}
+              </ion-text>
+            </strong>
+          </h4>
+          <span>Trip Id :
+            <ion-text color="secondary" >
+              {{ loadTrip.trip_id }}
+            </ion-text>
+          </span>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col size="10" >
+        <ion-button expand="block" (click)="bitAmountAlert()" >Bit Acceipt</ion-button>
+      </ion-col>
+      <ion-col size="2" >
+        <app-trip-remove [remove_details] ="trip_remove" ></app-trip-remove>
+      </ion-col>                            
+    </ion-row>
+    
+    <ion-row>
+      <ion-col size="10" >
+        <ion-text>
+          <p class="font-size-16" >
+            <strong>
+              <ion-text class="secondary" >
+                {{ loadTrip.from | titlecase }} - {{ loadTrip.to | titlecase }}
+              </ion-text>
+            </strong>
+          </p>
+          <p>
+            Reconfirmed 
+            <ion-text color="secondary" >
+              {{ loadTrip.car_type }}
+            </ion-text>
+          </p>
+        </ion-text>
+      </ion-col>
+      <!-- <ion-col size="2">
+        <ion-label>
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-label>
+      </ion-col> -->
+    </ion-row>
+    <ion-row>
+      <ion-col class="font-size-14"  >
+        <ion-text class=" font-weight-bold" >Trip Type</ion-text>
+        <br>
+        {{ loadTrip.trip_type }}
+      </ion-col>
+      <ion-col  >
+        <div class="ion-text-end font-size-14">
+          <ion-text class=" font-weight-bold" >Pickup Date Time</ion-text>
+          <br>
+          {{ loadTrip.date }} {{ loadTrip.time }}
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="font-size-14"  >
+        <ion-text class=" font-weight-bold" >KM Limit</ion-text>
+        <br>
+        {{ loadTrip.km_limit }}
+      </ion-col>
+      <ion-col  >
+        <div class="ion-text-end font-size-14">
+          <ion-text class=" font-weight-bold" >Extra KM Charge</ion-text>
+          <br>
+          {{ loadTrip.ex_km_charge }}
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6" class="font-size-14"  >
+        <ion-text class=" font-weight-bold" >Pickup Location</ion-text>
+        <br>
+        {{ loadTrip.from_address }}
+      </ion-col>
+      <ion-col size="6" >
+        <div class="ion-text-end font-size-14">
+          <ion-text class=" font-weight-bold" >Drop Location</ion-text>
+          <br>
+          <ion-text>{{ loadTrip.to_address }}</ion-text>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="font-size-14"  >
+        <ion-text class=" font-weight-bold" >Toll Tax</ion-text>
+        <br>
+        {{ loadTrip.toll_tax }}
+      </ion-col>
+      <ion-col  >
+        <div class="ion-text-end font-size-14">
+          <ion-text class=" font-weight-bold" >State Tax</ion-text>
+          <br>
+          {{ loadTrip.state_tax }}
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col  >
+        <div class="ion-text-end font-size-14">
+          <ion-text class=" font-weight-bold" >Drivar Allowance</ion-text>
+          <br>
+          {{ loadTrip.driver_allowance }}
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="font-size-14">
+        <ion-text class=" font-weight-bold" >Special Instruction</ion-text>
+        <br>
+        {{ loadTrip.special_instruction }}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

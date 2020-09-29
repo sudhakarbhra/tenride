@@ -1,0 +1,20 @@
+  <ion-item-sliding>
+    <ion-item lines="none">
+      <ion-label>
+        <p>Trip Id: <ion-text color="secondary" >{{ tripItem.trip_id }} | {{ tripItem.car_type }} </ion-text></p>
+        <h3><ion-text color="secondary">{{ tripItem.trip_type | uppercase  }}-{{ tripItem.day  }} DAY</ion-text></h3>
+        <h3><b><ion-text color="secondary">{{ tripItem.from | uppercase  }}-{{ tripItem.to | uppercase  }} DAY</ion-text></b></h3>
+      </ion-label>
+      <ion-note slot="end">
+        {{ tripItem.time }}
+      </ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <ion-button [routerLink] = "['/trip', tripItem.trip_id ]" color="dark" >Detail</ion-button>
+      </ion-label>
+      <ion-note slot="end">
+        <app-trip-remove [remove_details] = "tripRemove" ></app-trip-remove>
+      </ion-note>
+    </ion-item>
+  </ion-item-sliding>
